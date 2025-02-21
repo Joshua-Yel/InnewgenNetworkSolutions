@@ -66,11 +66,14 @@ export default function Footer() {
               alt="Facebook"
               className="w-6 h-6"
             />
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-              alt="GitHub"
-              className="w-6 h-6 filter invert"
-            />
+            <a href="https://github.com/Joshua-Yel">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                alt="GitHub"
+                className="w-6 h-6 filter invert"
+              />
+            </a>
+
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
               alt="Instagram"
