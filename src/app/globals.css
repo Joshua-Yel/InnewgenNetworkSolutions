@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: "TT Fors Black Outline";
+  src: url("/fonts/TT-Fors-Black-Outline-Trial.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cursor-effect {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: background 0.2s ease, transform 0.08s ease-out;
+  z-index: 9999;
+}
+
+.skills-mobile {
+  visibility:hidden;
+  position: absolute;
+}
+
+@media (max-width: 868px) {
+  .skills-mobile {
+    visibility: visible;
+    position: relative;
+  }
+  .skills-desktop {
+    visibility: hidden;
+    position: absolute;
+  }
+}
+
+
+/* .cursor-trail {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background:  #ff4500;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  filter: blur(10px);
+  transition: opacity 0.3s ease-out;
+} */
+
+/* .NetworkSolutions{
+font-weight: 100;
+} */
+
+@keyframes scroll {
+	0% {
+		transform: translateY(0);
+	}
+	30% {
+		transform: translateY(100px);
+	}
+}
+
+svg #wheel {
+	animation: scroll ease 1.5s infinite;
+}
+
+
+/* Animation for Service Cards */
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.service-card {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Trigger animation when visible */
+.animate-card {
+  animation: slideUp 0.6s forwards;
+}
+
+
+/* Marquee */
+
+/* .marqueeWrapper {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  align-items: center;
+  padding: 2%;
+  background-color:  rgb(255, 68, 0);
+  background-color: rgb(15 82 186);
+}
+
+.marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 23.52s linear infinite;
+
+}
+
+.marquee ul {
+  display: flex; 
+  padding-right: 100%;
+  margin: 0;
+  
+}
+
+
+.marquee li {
+  margin-right: 50px;
+  list-style-type: none; 
+  font-size: 45px; 
+  font-family: "TT Fors Black Outline"; 
+  color: rgb(168, 168, 168);
+  color: rgb(15 82 186);
+  color:  rgb(255, 68, 0);
+  text-transform: uppercase; 
+} */
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%); 
+  }
+}
+
+/* Responsive design */
+
+.marquee-wrapper{
+  width: 100000px; 
+  transform: translateX(0px); 
+  animation: 23.52s linear 0s infinite normal none running marqueeAnimation-88679690;
+}
