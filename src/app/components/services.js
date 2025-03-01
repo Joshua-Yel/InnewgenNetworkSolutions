@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Code,
   Database,
@@ -72,7 +72,50 @@ const services = [
 ];
 
 const Services = () => {
-  return (
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // If width < 768px, set isMobile to true
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return isMobile ? (
+    // Mobile Layout
+    <section className="bg-neutral-900 w-full py-16 px-6 md:px-16">
+      <div className="text-center max-w-3xl mx-auto mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Bringing Your Vision to Life with Expert Development
+        </h2>
+        <p className="text-gray-400">
+          We specialize in creating expert-driven software solutions designed to
+          elevate your business with innovation and efficiency.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="bg-neutral-800 p-4 rounded-lg shadow-lg flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300"
+          >
+            {service.icon}
+            <h3 className="text-sm sm:text-base font-semibold text-orange-500 mt-2">
+              {service.title}
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-300 mt-1">
+              {service.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  ) : (
+    // Desktop/Tablet Layout
     <section
       className="flex flex-col bg-neutral-900 w-full md:flex-row items-center justify-between px-10 py-16 mb-20"
       style={{
@@ -87,25 +130,23 @@ const Services = () => {
           Bringing Your Vision to Life with Expert Development
         </h2>
         <p className="text-gray-400">
-          We specialize in making expert driven software solutions designed to
+          We specialize in making expert-driven software solutions designed to
           elevate your business with innovation and efficiency.
         </p>
       </div>
-      <div className="relative grid grid-cols-3 gap-6 mt-0 md:mb-40 sm:grid-cols-2 lg:grid-cols-3 ">
+      <div className="relative grid grid-cols-2 gap-6 mt-0 md:mb-40 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
           <div
             key={index}
             className="bg-neutral-800 p-6 w-full h-60 rounded-lg shadow-lg relative transform transition-all duration-300 hover:-translate-y-2"
             style={{
               top: `${(index % 3) * 60}px`,
-              // left: `${(index % 2) * 10}px`,
               zIndex: `${10 - index}`,
               opacity: index % 2 === 0 ? 1 : 0.9,
               transition: "transform 0.10s, opacity 0.10s",
               transformOrigin: "center",
               display: "flex",
               flexDirection: "column",
-              cursor: "pointer",
               alignItems: "center",
               justifyContent: "space-evenly",
               cursor: "pointer",
