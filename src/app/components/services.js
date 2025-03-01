@@ -1,62 +1,230 @@
-import { useEffect } from "react";
+import React from "react";
+import {
+  Code,
+  Database,
+  Brain,
+  Layers,
+  Smartphone,
+  ShieldCheck,
+} from "lucide-react";
 
-export default function Services() {
-  useEffect(() => {
-    // Trigger animation on scroll
-    const handleScroll = () => {
-      const servicesSection = document.getElementById("services");
-      const cards = document.querySelectorAll(".service-card");
+const services = [
+  {
+    title: "Web Development",
+    description: "Building modern and responsive websites.",
+    icon: (
+      <Code
+        size={32}
+        className="text-blue-400"
+      />
+    ),
+  },
+  {
+    title: "System Development",
+    description: "Creating robust and scalable systems.",
+    icon: (
+      <Database
+        size={32}
+        className="text-blue-400"
+      />
+    ),
+  },
+  {
+    title: "AI Software Development",
+    description: "Developing intelligent AI-powered applications.",
+    icon: (
+      <Brain
+        size={32}
+        className="text-blue-400"
+      />
+    ),
+  },
+  {
+    title: "Full Stack Development",
+    description: "Handling both frontend and backend development.",
+    icon: (
+      <Layers
+        size={32}
+        className="text-blue-400"
+      />
+    ),
+  },
+  {
+    title: "Mobile App Development",
+    description: "Crafting user-friendly mobile applications.",
+    icon: (
+      <Smartphone
+        size={32}
+        className="text-blue-400"
+      />
+    ),
+  },
+  {
+    title: "Software Testing Services",
+    description: "Ensuring software quality and reliability.",
+    icon: (
+      <ShieldCheck
+        size={32}
+        className="text-blue-400"
+      />
+    ),
+  },
+];
 
-      if (
-        servicesSection &&
-        window.scrollY > servicesSection.offsetTop - window.innerHeight * 0.5
-      ) {
-        cards.forEach((card, index) => {
-          setTimeout(() => {
-            card.classList.add("animate-card"); // Add animation class after a delay
-          }, index * 200); // Stagger the animations
-        });
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+const Services = () => {
   return (
-    <div
-      id="services"
-      className="w-full h-auto bg-neutral-1000 py-20 text-white text-center relative flex flex-col items-center"
+    <section
+      className="flex flex-col bg-neutral-900 w-full md:flex-row items-center justify-between px-10 py-16 mb-20"
+      style={{
+        backgroundPosition: "center",
+        height: "460px",
+        marginTop: "200px",
+        padding: "150px",
+      }}
     >
-      <h2 className="text-3xl sm:text-4xl font-medium mb-10">SERVICES</h2>
-
-      {/* Background Blurred Circles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Blue Glow */}
-        <div className="absolute left-[153px] top-[521px] w-96 h-96 bg-blue-800/70 rounded-full blur-3xl opacity-50 sm:w-48 sm:h-48 sm:left-[50%] sm:top-[20%] sm:-translate-x-1/2 sm:translate-y-0 sm:max-w-full" />
-
-        {/* Orange Glow */}
-        <div className="absolute left-[-307px] top-[73px] w-96 h-60 bg-orange-600 rounded-full blur-3xl rotate-[-36.44deg] opacity-50 sm:w-36 sm:h-36 sm:left-[50%] sm:top-[60%] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:max-w-full" />
+      <div className="w-full md:w-1/2 pr-0 md:pr-20 mb-10 md:mb-0 text-center md:text-left">
+        <h2 className="text-4xl font-bold mb-4 text-white">
+          Bringing Your Vision to Life with Expert Development
+        </h2>
+        <p className="text-gray-400">
+          We specialize in making expert driven software solutions designed to
+          elevate your business with innovation and efficiency.
+        </p>
       </div>
-
-      {/* Service Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6 sm:px-20 mt-10">
-        {[
-          { title: "Web Development" },
-          { title: "System Development" },
-          { title: "AI Software Development" },
-          { title: "Full Stack Development" },
-          { title: "Mobile App Development" },
-          { title: "Software Testing Services" },
-        ].map((service, index) => (
+      <div className="relative grid grid-cols-3 gap-6 mt-0 md:mb-40 sm:grid-cols-2 lg:grid-cols-3 ">
+        {services.map((service, index) => (
           <div
             key={index}
-            className="service-card w-full sm:w-72 h-36 bg-zinc-900/60 border border-white rounded-2xl flex items-center justify-center text-lg font-light opacity-0 transition-opacity duration-500"
+            className="bg-neutral-800 p-6 w-full h-60 rounded-lg shadow-lg relative transform transition-all duration-300 hover:-translate-y-2"
+            style={{
+              top: `${(index % 3) * 60}px`,
+              // left: `${(index % 2) * 10}px`,
+              zIndex: `${10 - index}`,
+              opacity: index % 2 === 0 ? 1 : 0.9,
+              transition: "transform 0.10s, opacity 0.10s",
+              transformOrigin: "center",
+              display: "flex",
+              flexDirection: "column",
+              cursor: "pointer",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+              cursor: "pointer",
+            }}
           >
-            {service.title}
+            {service.icon}
+            <h3 className="text-lg font-semibold text-orange-600 mb-2">
+              {service.title}
+            </h3>
+            <p className="text-gray-300 text-sm text-center">
+              {service.description}
+            </p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default Services;
+
+// import React from "react";
+
+// const services = [
+//   {
+//     title: "Web Development",
+//     description: "Building modern and responsive websites.",
+//   },
+//   {
+//     title: "System Development",
+//     description: "Creating robust and scalable systems.",
+//   },
+//   {
+//     title: "AI Software Development",
+//     description: "Developing intelligent AI-powered applications.",
+//   },
+//   {
+//     title: "Full Stack Development",
+//     description: "Handling both frontend and backend development.",
+//   },
+//   {
+//     title: "Mobile App Development",
+//     description: "Crafting user-friendly mobile applications.",
+//   },
+//   {
+//     title: "Software Testing Services",
+//     description: "Ensuring software quality and reliability.",
+//   },
+// ];
+
+// const Services = () => {
+//   return (
+//     <section
+//       className="flex flex-col bg-gray-900 w-full  md:flex-row items-center justify-between px-28 py-16 mb-20"
+//       style={{
+//         backgroundPosition: "center",
+//         height: "460px",
+//         marginTop: "200px",
+//       }}
+//     >
+//       <div className="w-1/2 pr-10">
+//         <h2 className="text-4xl font-bold mb-4 text-white">
+//           Let Your Data Take Your Business to Higher Grounds
+//         </h2>
+//         <p className="text-gray-400">
+//           We specialize in delivering top-tier software solutions tailored to
+//           meet your business needs.
+//         </p>
+//       </div>
+//       <div className="relative grid grid-cols-3 gap-6 mt-0 md:mb-40">
+//         {/* md:mt-0 */}
+//         {services.map((service, index) => (
+//           <div
+//             key={index}
+//             className="bg-gray-800 p-6 w-52 h-60 rounded-lg shadow-lg relative transform transition-all duration-300 hover:-translate-y-2"
+//             style={{
+//               top: `${(index % 3) * 60}px`,
+//               // left: `${(index % 2) * 10}px`,
+//               zIndex: `${10 - index}`,
+//               opacity: index % 2 === 0 ? 1 : 0.7,
+//               transition: "transform 0.3s, opacity 0.3s",
+//               transformOrigin: "center",
+//               transition: "opacity 0.3s",
+//               display: "flex",
+//               flexDirection: "column",
+//               cursor: "pointer",
+//               alignItems: "center",
+//               justifyContent: "space-evenly",
+//               cursor: "pointer",
+//             }}
+//           >
+//             <h3
+//               className="text-lg font-semibold text-blue-400 mb-2"
+//               style={{
+//                 textTransform: "uppercase",
+//                 fontWeight: "bold",
+//                 fontSize: "1.2rem",
+//                 marginTop: "10px",
+//                 marginBottom: "0",
+//                 marginTop: "0",
+//               }}
+//             >
+//               {service.title}
+//             </h3>
+//             <p
+//               className="text-gray-300 text-sm"
+//               style={{
+//                 marginTop: "0",
+//                 marginBottom: "10px",
+
+//                 fontSize: "1rem",
+//               }}
+//             >
+//               {service.description}
+//             </p>
+//           </div>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// };
+// export default Services;
