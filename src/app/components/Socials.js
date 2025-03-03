@@ -6,7 +6,7 @@ export default function Socials() {
       <div className="background"></div>
       <div className="logo">
         <img
-          src="/assets/innewgen.svg"
+          src="/assets/INNEWGEN.svg"
           className="svg"
           alt="Logo"
         />
