@@ -6,8 +6,8 @@ export default function Socials() {
       <div className="background"></div>
       <div className="logo">
         <img
-          src="assets/innewgen.png"
-          className=""
+          src="assets/innewgen.svg"
+          className="svg"
         />
       </div>
 
@@ -25,7 +25,7 @@ export default function Socials() {
         </div>
       </a>
 
-      <a href="##">
+      <a href="github.com/Joshua-Yel">
         <div className="box box2">
           {" "}
           <span className="icon">
