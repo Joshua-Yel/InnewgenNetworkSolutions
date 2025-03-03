@@ -47,6 +47,74 @@ const techStackIcons = [
 export default function SkillsSection() {
   return (
     <div>
+      <section className="relative overflow-hidden py-10 bg-[#0a0a0a]">
+        <div className="container relative mx-auto">
+          <div className="marquee-wrapper flex overflow-hidden whitespace-nowrap">
+            <div className="og-marquee flex space-x-10 og-marquee-animation">
+              {[...techStackIcons, ...techStackIcons].map((item, index) => (
+                <span key={index}>
+                  <img
+                    src={item}
+                    alt="Tech Icon"
+                    width={45}
+                    height={45}
+                    className="rounded-full"
+                  />
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <style jsx>{`
+          @keyframes og-marquee {
+            0% {
+              transform: translateX(-50%);
+            }
+            100% {
+              transform: translateX(0%);
+            }
+          }
+          .og-marquee-animation {
+            animation: og-marquee 25s linear infinite;
+            width: max-content;
+          }
+        `}</style>
+      </section>
+
+      {/* Bottom Marquee: Tech Icons 18-32 moving from left to right */}
+      {/* <section className="relative overflow-hidden py-10 bg-[#0a0a0a]">
+        <div className="container relative mx-auto">
+          <div className="marquee-wrapper flex overflow-hidden whitespace-nowrap">
+            <div className="reverse-marquee flex space-x-10 reverse-marquee-animation">
+              {techStackIcons.map((item, index) => (
+                <img
+                  key={index}
+                  src={item}
+                  alt="Tech Icon"
+                  width={45}
+                  height={45}
+                  className="rounded-full"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <style jsx>{`
+          @keyframes reverse-marquee {
+            0% {
+              transform: translateX(-100%);
+            }
+            100% {
+              transform: translateX(100%);
+            }
+          }
+          .reverse-marquee-animation {
+            animation: reverse-marquee 23s linear infinite;
+            width: max-content;
+          }
+        `}</style>
+      </section> */}
+
       <div className="skills-desktop w-full bg-neutral-1000 py-20 text-white text-center overflow-hidden">
         <div
           className="w-full bg-neutral-1000 py-20 text-white text-center overflow-hidden"

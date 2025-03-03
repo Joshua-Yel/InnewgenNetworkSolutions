@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Teams from "./components/Teams";
 import MarqueeSection from "./components/MarqueeSection";
 import AboutMe from "./components/about-me";
+import Socials from "./components/Socials";
 
 export default function Home() {
   const router = useRouter();
@@ -32,11 +33,11 @@ export default function Home() {
     <>
       <Nav />
       <Hero />
-      <div id="services">
-        <Services />
-      </div>
       <div>
         <MarqueeSection />
+      </div>
+      <div id="services">
+        <Services />
       </div>
       <div id="skills">
         <SkillsSection />
@@ -45,9 +46,10 @@ export default function Home() {
         <Projects />
       </div>
       <div>
-        <AboutMe />
+        {/* <AboutMe /> */}
         {/* <Teams /> */}
       </div>
+      <Socials />
       <Footer />
     </>
   );

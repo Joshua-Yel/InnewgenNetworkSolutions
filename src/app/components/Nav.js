@@ -7,7 +7,7 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className=" top-0 left-0 w-full bg-neutral-900 text-white shadow-md z-50">
+    <nav className="top-0 left-0 w-full bg-neutral-900 text-white shadow-md z-50">
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         <Link
           href="/"
@@ -45,19 +45,30 @@ export default function Nav() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={30} /> : <Menu size={30} />}
-        </button>
+        <div className="md:hidden">
+          <input
+            className="label-check hidden"
+            id="label-check"
+            type="checkbox"
+            checked={isOpen}
+            onChange={() => setIsOpen(!isOpen)}
+          />
+          <label
+            htmlFor="label-check"
+            className="hamburger-label"
+          >
+            <div className="line1"></div>
+            <div className="line2"></div>
+            <div className="line3"></div>
+          </label>
+        </div>
       </div>
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`md:hidden flex flex-col items-center bg-neutral-900 absolute w-full transition-all duration-300 ease-in-out ${
+        className={`${
           isOpen ? "top-[64px] opacity-100" : "top-[-200px] opacity-0"
-        }`}
+        } md:hidden flex flex-col items-center bg-neutral-900 absolute w-full transition-all duration-300 ease-in-out`}
       >
         <Link
           href="#about"
