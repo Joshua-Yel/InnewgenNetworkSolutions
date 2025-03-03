@@ -6,12 +6,12 @@ export default function Socials() {
       <div className="background"></div>
       <div className="logo">
         <img
-          src="assets/innewgen.svg"
+          src="/innewgen.png"
           className="svg"
         />
       </div>
 
-      <a href="www.instagram.com/utribiana/">
+      <a href="https://www.instagram.com/utribiana/">
         <div className="box box1">
           <span className="icon">
             <svg
@@ -25,7 +25,7 @@ export default function Socials() {
         </div>
       </a>
 
-      <a href="github.com/Joshua-Yel">
+      <a href="https://www.github.com/Joshua-Yel">
         <div className="box box2">
           {" "}
           <span className="icon">
@@ -45,7 +45,7 @@ export default function Socials() {
         </div>
       </a>
 
-      <a href="facebook.com/UTribiana/">
+      <a href="https://www.facebook.com/UTribiana/">
         <div className="box box3">
           <span className="icon">
             <svg
