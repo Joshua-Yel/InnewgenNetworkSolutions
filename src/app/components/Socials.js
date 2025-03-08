@@ -12,7 +12,7 @@ export default function Socials() {
         />
       </div>
 
-      <a href="https://www.instagram.com/utribiana/">
+      <a href="https://www.instagram.com/innewgen.official">
         <div className="box box1">
           <span className="icon">
             <svg
@@ -46,7 +46,7 @@ export default function Socials() {
         </div>
       </a>
 
-      <a href="https://www.facebook.com/UTribiana/">
+      <a href="https://www.facebook.com/Innewgen.Official">
         <div className="box box3">
           <span className="icon">
             <svg

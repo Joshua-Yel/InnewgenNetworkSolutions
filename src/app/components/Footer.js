@@ -3,7 +3,7 @@ export default function Footer() {
     <footer
       className="text-white py-10 px-6 text-center"
       style={{
-        position: "relative",
+        position: "static",
         bottom: "0",
         width: "100%",
         background: "#121212",
@@ -56,7 +56,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-2">Contacts</h3>
             <p>+63 9953489923</p>
             <p className="underline">business.urieltribiana@gmail.com</p>
-            <p className="underline">Innewgen.ph@gmail.com</p>
+            {/* <p className="underline">Innewgen.ph@gmail.com</p> */}
           </div>
         </div>
 
