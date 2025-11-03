@@ -18,6 +18,8 @@ const services = [
         className="text-blue-400"
       />
     ),
+    gradient: "from-blue-500 via-blue-600 to-cyan-500",
+    glowColor: "rgba(59, 130, 246, 0.3)",
   },
   {
     title: "System Development",
@@ -97,14 +99,14 @@ const Services = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="service-grid grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {services.map((service, index) => (
           <div
             key={index}
-            className="bg-neutral-800 p-4 rounded-lg shadow-lg flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300"
+            className="service-card bg-neutral-800 p-4 rounded-lg shadow-lg flex flex-col items-center justify-center text-center hover:shadow-2xl transition-all duration-300"
           >
             {service.icon}
-            <h3 className="text-sm sm:text-base font-semibold text-orange-500 mt-2">
+            <h3 className="service-title text-sm sm:text-base font-semibold text-orange-500 mt-2">
               {service.title}
             </h3>
             <p className="text-xs sm:text-sm text-gray-300 mt-1">
@@ -117,7 +119,7 @@ const Services = () => {
   ) : (
     // Desktop/Tablet Layout
     <section
-      className="flex flex-col bg-neutral-900 w-full md:flex-row items-center justify-between px-10 py-16 mb-20"
+      className="service-section flex flex-col bg-neutral-900 w-full md:flex-row items-center justify-between px-10 py-16 mb-20"
       style={{
         backgroundPosition: "center",
         height: "460px",
@@ -125,7 +127,7 @@ const Services = () => {
         padding: "150px",
       }}
     >
-      <div className="w-full md:w-1/2 pr-0 md:pr-20 mb-10 md:mb-0 text-center md:text-left">
+      <div className="service-info w-full md:w-1/2 pr-0 md:pr-20 mb-10 md:mb-0 text-center md:text-left">
         <h2 className="text-4xl font-bold mb-4 text-white">
           Bringing Your Vision to Life with Expert Development
         </h2>
@@ -134,11 +136,11 @@ const Services = () => {
           elevate your business with innovation and efficiency.
         </p>
       </div>
-      <div className="relative grid grid-cols-2 gap-6 mt-0 md:mb-40 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="service-grid relative grid grid-cols-2 gap-6 mt-0 md:mb-40 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
           <div
             key={index}
-            className="bg-neutral-800 p-6 w-full h-60 rounded-lg shadow-lg relative transform transition-all duration-300 hover:-translate-y-2"
+            className="service-card bg-neutral-800 p-6 w-full h-60 rounded-lg shadow-lg relative transform transition-all duration-300 hover:-translate-y-2"
             style={{
               top: `${(index % 3) * 60}px`,
               zIndex: `${10 - index}`,
@@ -153,7 +155,7 @@ const Services = () => {
             }}
           >
             {service.icon}
-            <h3 className="text-lg font-semibold text-orange-600 mb-2">
+            <h3 className="service-title text-lg font-semibold text-orange-600 mb-2">
               {service.title}
             </h3>
             <p className="text-gray-300 text-sm text-center">
@@ -167,105 +169,3 @@ const Services = () => {
 };
 
 export default Services;
-
-// import React from "react";
-
-// const services = [
-//   {
-//     title: "Web Development",
-//     description: "Building modern and responsive websites.",
-//   },
-//   {
-//     title: "System Development",
-//     description: "Creating robust and scalable systems.",
-//   },
-//   {
-//     title: "AI Software Development",
-//     description: "Developing intelligent AI-powered applications.",
-//   },
-//   {
-//     title: "Full Stack Development",
-//     description: "Handling both frontend and backend development.",
-//   },
-//   {
-//     title: "Mobile App Development",
-//     description: "Crafting user-friendly mobile applications.",
-//   },
-//   {
-//     title: "Software Testing Services",
-//     description: "Ensuring software quality and reliability.",
-//   },
-// ];
-
-// const Services = () => {
-//   return (
-//     <section
-//       className="flex flex-col bg-gray-900 w-full  md:flex-row items-center justify-between px-28 py-16 mb-20"
-//       style={{
-//         backgroundPosition: "center",
-//         height: "460px",
-//         marginTop: "200px",
-//       }}
-//     >
-//       <div className="w-1/2 pr-10">
-//         <h2 className="text-4xl font-bold mb-4 text-white">
-//           Let Your Data Take Your Business to Higher Grounds
-//         </h2>
-//         <p className="text-gray-400">
-//           We specialize in delivering top-tier software solutions tailored to
-//           meet your business needs.
-//         </p>
-//       </div>
-//       <div className="relative grid grid-cols-3 gap-6 mt-0 md:mb-40">
-//         {/* md:mt-0 */}
-//         {services.map((service, index) => (
-//           <div
-//             key={index}
-//             className="bg-gray-800 p-6 w-52 h-60 rounded-lg shadow-lg relative transform transition-all duration-300 hover:-translate-y-2"
-//             style={{
-//               top: `${(index % 3) * 60}px`,
-//               // left: `${(index % 2) * 10}px`,
-//               zIndex: `${10 - index}`,
-//               opacity: index % 2 === 0 ? 1 : 0.7,
-//               transition: "transform 0.3s, opacity 0.3s",
-//               transformOrigin: "center",
-//               transition: "opacity 0.3s",
-//               display: "flex",
-//               flexDirection: "column",
-//               cursor: "pointer",
-//               alignItems: "center",
-//               justifyContent: "space-evenly",
-//               cursor: "pointer",
-//             }}
-//           >
-//             <h3
-//               className="text-lg font-semibold text-blue-400 mb-2"
-//               style={{
-//                 textTransform: "uppercase",
-//                 fontWeight: "bold",
-//                 fontSize: "1.2rem",
-//                 marginTop: "10px",
-//                 marginBottom: "0",
-//                 marginTop: "0",
-//               }}
-//             >
-//               {service.title}
-//             </h3>
-//             <p
-//               className="text-gray-300 text-sm"
-//               style={{
-//                 marginTop: "0",
-//                 marginBottom: "10px",
-
-//                 fontSize: "1rem",
-//               }}
-//             >
-//               {service.description}
-//             </p>
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-// export default Services;

@@ -1,104 +1,163 @@
-export default function Footer() {
+import React from "react";
+import {
+  FiGithub,
+  FiLinkedin,
+  FiFacebook,
+  FiInstagram,
+  FiMail,
+} from "react-icons/fi";
+
+import "../ui/Footer.css";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const handleAnchorClick = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
+
   return (
-    <footer
-      className="text-white py-10 px-6 text-center"
-      style={{
-        position: "static",
-        bottom: "0",
-        width: "100%",
-        background: "#121212",
-        zIndex: "100",
-      }}
-    >
-      <div
-        className="container mx-auto"
-        style={{
-          maxWidth: "1200px",
-          padding: "0 24px",
-        }}
-      >
-        <h2 className="text-2xl font-bold mb-4">INNEWGEN</h2>
-
-        {/* Desktop View */}
-        <div className="hidden md:grid md:grid-cols-3 gap-6 text-sm text-gray-300">
-          <div>
-            <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
-            <div className="flex justify-center gap-4">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                alt="Facebook"
-                className="w-6 h-6"
-              />
-              <a href="https://github.com/Joshua-Yel">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                  alt="GitHub"
-                  className="w-6 h-6 filter invert"
-                />
+    <footer className="footer">
+      <div className=" footer-container">
+        <div className="footer-content">
+          <div className="footer-section">
+            <h3 className="footer-logo">Innewgen</h3>
+            <p className="footer-description">
+              Engineering Tomorrow's Enterprises, Today. Expert-driven software
+              development and AI solutions for forward-thinking businesses.
+            </p>
+            <div className="social-links">
+              <a
+                href="https://github.com/Innewgen"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <FiGithub />
               </a>
-
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                alt="Instagram"
-                className="w-6 h-6"
-              />
+              {/* <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FiLinkedin />
+              </a> */}
+              <a
+                href="https://www.facebook.com/Innewgen.Official"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FiFacebook />
+              </a>
+              <a
+                href="https://www.instagram.com/innewgen.official/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <FiInstagram />
+              </a>
             </div>
           </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-2">Company</h3>
-            <p>About Us</p>
-            <p>Team</p>
-            <p>Contacts</p>
-            <p>Projects</p>
+          <div className="footer-section">
+            <h4 className="footer-heading">Services</h4>
+            <ul className="footer-links">
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleAnchorClick(e, "services")}
+                >
+                  Custom System Development
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleAnchorClick(e, "services")}
+                >
+                  AI & Machine Learning
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleAnchorClick(e, "services")}
+                >
+                  Web & Mobile Development
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleAnchorClick(e, "services")}
+                >
+                  IT Consulting
+                </a>
+              </li>
+            </ul>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-2">Contacts</h3>
-            <p>+63 9953489923</p>
-            <p className="underline">business.urieltribiana@gmail.com</p>
-            {/* <p className="underline">Innewgen.ph@gmail.com</p> */}
+          <div className="footer-section">
+            <h4 className="footer-heading">Company</h4>
+            <ul className="footer-links">
+              <li>
+                <a
+                  href="#portfolio"
+                  onClick={(e) => handleAnchorClick(e, "portfolio")}
+                >
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#process"
+                  onClick={(e) => handleAnchorClick(e, "process")}
+                >
+                  Our Process
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  onClick={(e) => handleAnchorClick(e, "contact")}
+                >
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="#terms">Terms of Service</a>
+              </li>
+              <li>
+                <a href="#privacy">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h4 className="footer-heading">Contact</h4>
+            <ul className="footer-contact">
+              <li>
+                <FiMail />
+                <a href="mailto:hello@innewgen.com">
+                  business.urieltribiana@gmail.com
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-
-        {/* Mobile View */}
-        <div className="md:hidden">
-          <div className="flex justify-center gap-4">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-              alt="Facebook"
-              className="w-6 h-6"
-            />
-            <a href="https://github.com/Joshua-Yel">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                alt="GitHub"
-                className="w-6 h-6 filter invert"
-              />
-            </a>
-
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-              alt="Instagram"
-              className="w-6 h-6"
-            />
-          </div>
-          {/* <div className="flex grid justify-center gap-4 mt-4">
-            <p>+63 9953489923</p>
-            <p className="underline">business.urieltribiana@gmail.com</p>
-            <p className="underline">innewgen.ph@gmail.com</p>
-          </div> */}
-          <div className="flex justify-center gap-4 mt-4">
-            <p>About Us</p>
-            <p>Team</p>
-            <p>Contacts</p>
-            <p>Projects</p>
-          </div>
+        <div className="footer-bottom">
+          <p>&copy; Copyright {currentYear}. Innewgen. All Rights Reserved.</p>
         </div>
-
-        <hr className="my-6 border-gray-700" />
-
-        <p className="text-xs">© Copyright 2025. Made by Innewgen</p>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

@@ -12,6 +12,7 @@ import Teams from "./components/Teams";
 import MarqueeSection from "./components/MarqueeSection";
 import AboutMe from "./components/about-me";
 import Socials from "./components/Socials";
+import InnewgenEdge from "./components/InnewgenEdge";
 
 export default function Home() {
   const router = useRouter();
@@ -39,17 +40,20 @@ export default function Home() {
       <div id="services">
         <Services />
       </div>
-      <div id="skills">
-        <SkillsSection />
-      </div>
       <div id="projects">
         <Projects />
+      </div>
+      <div id="Edge">
+        <InnewgenEdge />
+      </div>
+      <div id="skills">
+        <SkillsSection />
       </div>
       <div>
         {/* <AboutMe /> */}
         {/* <Teams /> */}
       </div>
-      <Socials />
+      {/* <Socials /> */}
       <Footer />
     </>
   );

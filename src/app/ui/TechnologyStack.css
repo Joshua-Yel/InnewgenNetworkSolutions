@@ -1,0 +1,138 @@
+/* Container */
+.skills-section {
+  background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+.section-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 800;
+  background-color: #fff;
+  /* background: linear-gradient(135deg, var(--electric-blue), var(--deep-orange)); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Make gradient apply per letter */
+  background-size: 100% 100%;
+  display: inline-block; /* ensures the gradient respects letter shapes */
+  margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.7rem;
+
+  }
+  .section-subtitle {
+    font-size: 1rem;
+    padding: 0 30px;
+  }
+}
+
+
+.section-subtitle {
+  text-align: center;
+  color: var(--deep-orange-dark);
+  font-size: 1.1rem;
+  margin-bottom: 60px;
+}
+
+
+/* Category Title */
+.category-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  
+}
+
+.category-title::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background: #00f0ff;
+  left: 25%;
+  bottom: 0;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.category-title:hover::after {
+  transform: scaleX(1);
+}
+
+/* Tech Icons Container */
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Individual Tech Icon */
+.tech-icon {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #333333;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.6), -5px -5px 15px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.tech-icon:hover {
+  transform: scale(1.3) rotate(10deg);
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.6), 0 0 30px rgba(0, 102, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Scroll */
+.tech-stack-mobile .tech-icons {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #00f0ff transparent;
+}
+
+.tech-stack-mobile .tech-icons::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tech-stack-mobile .tech-icons::-webkit-scrollbar-thumb {
+  background: #00f0ff;
+  border-radius: 3px;
+}
+
+.tech-stack-mobile .tech-icons::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .tech-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .category-title {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .tech-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .category-title {
+    font-size: 1.2rem;
+  }
+}
