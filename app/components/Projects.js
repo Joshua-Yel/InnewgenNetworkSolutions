@@ -55,6 +55,16 @@ const projectData = [
     size: "small",
     metrics: "500% traffic increase",
   },
+  {
+    id: 6,
+    title: "Aura 300",
+    category: "Frontend web",
+    description: "AI Salon engine",
+    image: "/assets/project2.png",
+    link: "https://www.aura300.ai/",
+    size: "small",
+    metrics: "New users daily",
+  },
 ];
 
 const Projects = () => {
