@@ -146,13 +146,15 @@ const HeroSection = () => {
             className="flex justify-center mb-20 animate-fadeInUp"
             style={{ animationDelay: "0.3s" }}
           >
-            <button className="group relative px-10 py-5 bg-gradient-to-r from-[#0f52ba] to-[#1a5ec4] text-white font-bold text-lg rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#0f52ba]/40">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1a5ec4] to-[#2d6fd8] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative flex items-center gap-3">
-                Let's Talk
-                <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" />
-              </span>
-            </button>
+            <a href="https://www.facebook.com/Innewgen.Official/">
+              <button className="group relative px-10 py-5 bg-gradient-to-r from-[#0f52ba] to-[#1a5ec4] text-white font-bold text-lg rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#0f52ba]/40">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1a5ec4] to-[#2d6fd8] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative flex items-center gap-3">
+                  Let's Talk
+                  <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" />
+                </span>
+              </button>
+            </a>
           </div>
 
           {/* Scroll indicator with brand color */}
