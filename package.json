@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "^14.2.15",
     "@shadcn/ui": "^0.0.4",
     "autoprefixer": "^10.4.21",
     "buttons": "^0.1.2",
-    "font": "^0.0.4",
     "framer-motion": "^12.4.7",
     "lucide-react": "^0.474.0",
     "next": "15.1.6",
