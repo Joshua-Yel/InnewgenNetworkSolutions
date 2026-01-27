@@ -13,6 +13,7 @@ import MarqueeSection from "./components/MarqueeSection";
 import AboutMe from "./components/about-me";
 import Socials from "./components/Socials";
 import InnewgenEdge from "./components/InnewgenEdge";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   const router = useRouter();
@@ -32,6 +33,7 @@ export default function Home() {
 
   return (
     <>
+      <Analytics />
       <Nav />
       <Hero />
       <div>
