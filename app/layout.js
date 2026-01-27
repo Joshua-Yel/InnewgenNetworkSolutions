@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import CursorEffect from "./CursorEffect";
 import "./globals.css";
 
@@ -114,6 +115,7 @@ export default function RootLayout({ children }) {
       >
         <CursorEffect />
         {children}
+        <Analytics />
       </body>
     </html>
   );
