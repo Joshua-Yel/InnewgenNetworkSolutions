@@ -14,6 +14,7 @@ export const projects = [
   { name: "Boxed Blossoms", kind: "E-commerce", metric: "500%", metricLabel: "traffic increase", desc: "A luxury flower shop website based in Makati, Philippines.", url: "https://boxedblossoms.com/", hue: "volt" },
   { name: "PortfolioHub", kind: "Web", metric: "1,000+", metricLabel: "portfolios hosted", desc: "A platform to showcase and discover creative portfolios.", url: "https://portfoliohub-demo.vercel.app/", hue: "ink" },
   { name: "Aura 300", kind: "AI · Frontend", metric: "Daily", metricLabel: "new users", desc: "AI salon engine.", url: "https://www.aura300.ai/", hue: "signal" },
+  { name: "Verde", kind: "System", metric: "AI", metricLabel: "demand forecasting", desc: "Decision support system for AI-assisted demand forecasting and salon operations.", url: "https://verde-dss.vercel.app/", hue: "volt" },
 ] as const;
 
 export const stack = ["React", "Angular", "Vue", "Tailwind", "JavaScript", "PHP", "Python", "Node.js", "Laravel", "PostgreSQL", "MySQL", "Docker", "AWS", "Flutter", "C", "AI / LLMs"];

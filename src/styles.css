@@ -229,7 +229,39 @@
 @keyframes step-in { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: none; } }
 .step-in { animation: step-in 0.5s cubic-bezier(.2,.8,.2,1) both; }
 
+/* ---------- form fields (contact multi-step) ---------- */
+.field {
+  display: block;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+  padding: 0.9rem 1.1rem;
+  font-size: 1rem;
+  color: var(--color-foreground);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.field:focus {
+  outline: none;
+  border-color: var(--signal);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--signal) 25%, transparent);
+}
+.field::placeholder {
+  color: var(--color-muted-foreground);
+  opacity: 0.7;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
   .reveal, .mask-line > span, .clip-reveal { opacity: 1; transform: none; clip-path: none; }
+}
+
+.reveal,
+.clip-reveal,
+[data-reveal],
+.mask-line > span {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  clip-path: none !important;
 }

@@ -8,10 +8,10 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { organizationStructuredData, SITE_URL } from "../lib/seo";
 import { SiteShell } from "@/components/site/site";
 
 function NotFoundComponent() {
@@ -20,9 +20,13 @@ function NotFoundComponent() {
       <div className="max-w-md text-center">
         <h1 className="display-lg text-primary">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">This page took a wrong turn</h2>
-        <p className="mt-2 text-sm text-muted-foreground">The page you're looking for doesn't exist or has been moved.</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
         <div className="mt-8">
-          <Link to="/" className="btn-signal">Go home</Link>
+          <Link to="/" className="btn-signal">
+            Go home
+          </Link>
         </div>
       </div>
     </div>
@@ -32,15 +36,16 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">This page didn't load</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Something went wrong on our end. You can try refreshing or head back home.</p>
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          This page didn't load
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Something went wrong on our end. You can try refreshing or head back home.
+        </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -51,7 +56,9 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
           >
             Try again
           </button>
-          <a href="/" className="btn-ghost">Go home</a>
+          <a href="/" className="btn-ghost">
+            Go home
+          </a>
         </div>
       </div>
     </div>
@@ -66,13 +73,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Innewgen — Software Solutions" },
-      { name: "description", content: "Innewgen builds websites, systems, AI and mobile software that actually work for your business." },
+      {
+        name: "description",
+        content:
+          "Innewgen builds websites, systems, AI and mobile software that actually work for your business.",
+      },
+      { name: "robots", content: "index, follow" },
+      { name: "theme-color", content: "#f5f3ed" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:site_name", content: "Innewgen" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:image", content: `${SITE_URL}/favicon.png` },
+      { property: "og:image:alt", content: "Innewgen brand mark" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Innewgen — Software Solutions" },
+      {
+        name: "twitter:description",
+        content:
+          "Innewgen builds websites, systems, AI and mobile software that actually work for your business.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/favicon.png` },
+      { name: "twitter:image:alt", content: "Innewgen brand mark" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "icon", type: "image/x-icon", href: "/INNEWGEN.ico" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -92,6 +119,10 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationStructuredData) }}
+        />
         <HeadContent />
       </head>
       <body>

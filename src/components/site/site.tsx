@@ -1,27 +1,60 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
-import logo from "@/assets/innewgen-logo.png.asset.json";
+import logoUrl from "@/assets/innewgen-logo.svg";
 
 /* ---------- scroll reveal: adds .in to any [data-reveal] in view ---------- */
+
 export function useRevealAll() {
-  const path = useRouterState({ select: (s) => s.location.pathname });
+  const path = useRouterState({
+    select: (s) => s.location.pathname,
+  });
+
   useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal, .clip-reveal, [data-reveal]");
-    const io = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-          }
-        }),
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    let observer: IntersectionObserver | undefined;
+    let frame = 0;
+
+    // Wait until the new route has rendered.
+    frame = requestAnimationFrame(() => {
+      const elements =
+        document.querySelectorAll<HTMLElement>(
+          ".reveal, .clip-reveal, [data-reveal]",
+        );
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              observer?.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0,
+          rootMargin: "0px 0px -5% 0px",
+        },
+      );
+
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+
+        // Reveal elements already visible on the new route.
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add("in");
+        } else {
+          observer?.observe(el);
+        }
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer?.disconnect();
+    };
   }, [path]);
 }
+
 
 /* ---------- 0..1 progress of an element through the viewport ---------- */
 export function useScrollProgress<T extends HTMLElement>() {
@@ -53,7 +86,7 @@ export function useScrollProgress<T extends HTMLElement>() {
 }
 
 export function Logo({ className = "h-8 w-8" }: { className?: string }) {
-  return <img src={logo.url} alt="" aria-hidden className={className} />;
+  return <img src={logoUrl} alt="Innewgen" className={className} />;
 }
 
 export function MaskText({ lines, className = "", delay = 0 }: { lines: ReactNode[]; className?: string; delay?: number }) {
